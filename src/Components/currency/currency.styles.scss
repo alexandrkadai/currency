@@ -1,0 +1,14 @@
+.currency-container {
+  ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    list-style-type: none;
+
+    li {
+      font-size: 25px;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+  }
+}
