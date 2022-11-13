@@ -1,24 +1,65 @@
 .main-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin-top: 50px;
+  column-gap: 100px;
 }
+.currency-form {
+  &__first {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 5px;
+    background-color: white;
+    border-radius: 5px;
+    height: 150px;
+    label {
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      padding: 3px;
+      background-color: white;
+    }
+    select {
+      border: 1px solid black;
+      border-radius: 10px;
+      padding: 3px;
+      background-color: white;
+      box-shadow: 2px 2px rgba(237, 231, 225, 0.5);
+    }
+  }
+  &__second {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    background-color: white;
+    border-radius: 5px;
+    height: 150px;
+    label {
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 20px;
 
-.currency-form__first {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  label {
-    font-weight: bold;
-    margin-bottom: 30px;
+      padding: 3px;
+      background-color: white;
+    }
+    select {
+      border: 1px solid black;
+      border-radius: 10px;
+      padding: 3px;
+      background-color: white;
+      box-shadow: 2px 2px rgba(237, 231, 225, 0.5);
+    }
+  }
+  &__input {
+    border: solid 1px black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    height: 20px;
   }
 }
-.currency-form__second {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  label {
-    font-weight: bold;
-    margin-bottom: 30px;
-  }
+.main-separator {
+  font-size: 25px;
+  margin-top: 30px;
 }

@@ -6,7 +6,7 @@ const Main = () => {
     <section className="main-container">
       <form className="currency-form__first">
         <label htmlFor="currency">Enter Currency</label>
-        <input type="number" />
+        <input type="number" className="currency-form__input" />
         <select name="currency" id="currency_first">
           <option value="UAH">UAH</option>
           <option value="Usd">USD</option>
@@ -14,10 +14,10 @@ const Main = () => {
           <option value="Btc">BTC</option>
         </select>
       </form>
-
+      <div className="main-separator"></div>
       <form className="currency-form__second">
         <label htmlFor="currency">Select Exchange Currency</label>
-        <input type="number" />
+        <input type="number" className="currency-form__input" />
         <select name="currency" id="currency_second">
           <option value="UAH">UAH</option>
           <option value="Usd">USD</option>
