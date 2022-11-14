@@ -20,3 +20,12 @@ const getCurrency = () => {
 // <li>{usdCurency} $</li>
 // <li>{eurCurency} ¢</li>
 // <li>{parseFloat(btcCurency * usdCurency).toFixed(2)} BTC</li>
+
+{
+  props.map((a) => {
+    <>
+      <li>{a.ccy}</li>
+      <li>{a.sale}</li>
+    </>;
+  });
+}

@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Header from './Components/Header/header.component';
 import Main from './Components/Main/main.component';
 import './App.css';
 
 function App() {
-  const [currencyRate, setCurrencyRate] = useState();
-  const [usdCurrency, setUsdCurrency] = useState(null);
-  const [eurCurency, setEurCurrency] = useState();
-  const [btcCurency, setBtcCurrency] = useState([]);
-  const [trig, setTrig] = useState(null);
-  let usdRate, euroRate, btcRate;
-
+  const [currencyRate, setCurrencyRate] = useState({});
+  const [fromCurrency, setFromCurrency] = useState('UAH');
+  const [curencies, setCurrencies] = useState({});
   const BaseUrl = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5';
+
+  const ratesRef = useRef({});
+
+  let curencyName;
+  let curencyValue;
 
   useEffect(() => {
     fetch(BaseUrl, {
@@ -20,34 +21,24 @@ function App() {
       response
         .json()
         .then((result) => {
-          setBtcCurrency(result);
+          ratesRef.current = result;
         })
         .catch((error) => console.log('error', error));
     });
   }, []);
 
-  // const rates = [usdCurrency, eurCurency, btcCurency].forEach((item) => {
-  //   currency: {
-  //     item.sale;
-  //   }
-  // });
+  // useEffect(() => {
+  //   curencyName = ratesRef.map((a) => a.ccy);
+  //   curencyValue = ratesRef.map((a) => a.sale);
+  // }, [ratesRef]);
 
-  // const some = [
-  //   usdCurrency.sale,
-  //   usdCurrency.ccy,
-  //   eurCurency.sale,
-  //   eurCurency.ccy,
-  //   btcCurency.sale,
-  //   btcCurency.ccy,
-  // // ];
-  useEffect(() => {
-    console.log(btcCurency);
-  }, [btcCurency]);
+  // console.log(ratesRef);
+  // console.log(curencyName);
+  // console.log(curencyValue);
 
   return (
     <div className="App">
-      {btcCurency ? <Header props={btcCurency} /> : <span>loading</span>}
-
+      <Header />
       <Main />
     </div>
   );

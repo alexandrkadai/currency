@@ -3,13 +3,12 @@ header {
   height: 100px;
   background-color: #0390fc;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 
   h2 {
     margin: 10px 0 0 0;
     font-size: 32px;
     color: black;
-    margin-left: 20px;
   }
 }
 .currency-container {

@@ -1,8 +1,18 @@
 .main-container {
+  margin-top: 50px;
+}
+.form-container {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
-  column-gap: 100px;
+  column-gap: 30px;
+}
+.separator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 30px;
+  margin: 50px 30px 0 30px;
 }
 .currency-form {
   &__first {
@@ -13,6 +23,8 @@
     background-color: white;
     border-radius: 5px;
     height: 150px;
+    width: 300px;
+    border: 1px solid black;
     label {
       font-size: 25px;
       font-weight: bold;
@@ -36,11 +48,12 @@
     background-color: white;
     border-radius: 5px;
     height: 150px;
+    width: 300px;
+    border: 1px solid black;
     label {
       font-size: 25px;
       font-weight: bold;
       margin-bottom: 20px;
-
       padding: 3px;
       background-color: white;
     }
@@ -58,8 +71,4 @@
     margin-bottom: 20px;
     height: 20px;
   }
-}
-.main-separator {
-  font-size: 25px;
-  margin-top: 30px;
 }
