@@ -6,8 +6,8 @@ import './App.css';
 function App() {
   const [currencyRate, setCurrencyRate] = useState({});
   const [fromCurrency, setFromCurrency] = useState('UAH');
-  const [curencies, setCurrencies] = useState({});
-  const BaseUrl = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5';
+  const [curencies, setCurrencies] = useState();
+  const BaseUrl = 'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json';
 
   const ratesRef = useRef({});
 
@@ -17,20 +17,26 @@ function App() {
   useEffect(() => {
     fetch(BaseUrl, {
       method: 'GET',
-    }).then((response) => {
-      response
-        .json()
-        .then((result) => {
-          ratesRef.current = result;
-        })
-        .catch((error) => console.log('error', error));
-    });
+    })
+      .then((response) => {
+        setCurrencies(response.json());
+      })
+
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => console.log('error', error));
   }, []);
 
-  // useEffect(() => {
-  //   curencyName = ratesRef.map((a) => a.ccy);
-  //   curencyValue = ratesRef.map((a) => a.sale);
-  // }, [ratesRef]);
+  useEffect(() => {
+    ratesRef = currencies;
+    if (ratesRef.isArray()) {
+      curencyName = ratesRef.map((a) => a.cc);
+      curencyValue = ratesRef.map((a) => a.rate);
+    }
+
+    console.log(curencies);
+  }, [curencies]);
 
   // console.log(ratesRef);
   // console.log(curencyName);
